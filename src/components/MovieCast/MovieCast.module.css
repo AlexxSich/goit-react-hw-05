@@ -1,0 +1,30 @@
+.movieCastList {
+    max-width: 1000px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieCastListItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    width: 250px;
+    height: 380px;
+    background-color: rgb(228, 225, 221);
+}
+
+.actorImg {
+    height: 75%;
+    width: 75%;
+    object-fit: cover;
+}

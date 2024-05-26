@@ -1,0 +1,9 @@
+.reviewContainer {
+    max-width: 1000px;
+}
+
+.reviewList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

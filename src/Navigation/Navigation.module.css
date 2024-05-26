@@ -1,0 +1,10 @@
+.navLinks {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.active {
+    color: rgb(211, 28, 28);
+    text-decoration: underline;
+}

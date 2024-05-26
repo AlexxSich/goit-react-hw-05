@@ -1,0 +1,51 @@
+.genresContainer {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.detailsCardContainer {
+    display: flex;
+    gap: 15px;
+    max-width: 980px;
+}
+
+.movieDetailsText {
+    width: 950px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.movieTitle {
+    margin-bottom: 50px;
+}
+
+.posterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cardLink {
+    background-color: rgb(215, 215, 219);
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    line-height: 0.5;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: black;
+    transition: transform 250ms linear;
+}
+
+.cardLink:hover {
+    transform: scale(105%);
+}
+
+.moviePoster {
+    width: 100%;
+}
