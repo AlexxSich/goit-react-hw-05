@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import Navigation from '../../Navigation/Navigation';
+import Navigation from '../Navigation/Navigation';
 import HomePage from '../../pages/HomePages/HomePages';
 import MoviesPage from '../../pages/MoviesPage/MoviesPage';
 import MovieDetailsPage from '../../pages/MovieDetailsPage/MovieDetailsPage';
@@ -8,6 +8,7 @@ import MovieReviews from '../../components/MovieReviews/MovieReviews';
 import MovieCast from '../../components/MovieCast/MovieCast';
 
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
+import { Toaster } from 'react-hot-toast';
 
 import css from './App.module.css';
 export default function App() {
@@ -26,6 +27,8 @@ export default function App() {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
+      <Toaster position="top-right" />
     </div>
   );
 }

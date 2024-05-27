@@ -16,9 +16,6 @@ export default function MovieDetailsCard({
 
   return (
     <>
-      <Link className={css.cardLink} to="/">
-        Go back
-      </Link>
       <div className={css.detailsCardContainer}>
         <div className={css.posterContainer}>
           <img

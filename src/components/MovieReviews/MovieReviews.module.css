@@ -7,3 +7,14 @@
     flex-direction: column;
     gap: 30px;
 }
+
+.comments {
+    display: flex;
+    flex-direction: column;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

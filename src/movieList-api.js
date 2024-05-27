@@ -29,3 +29,8 @@ export const getReviewInfo = async movieId => {
   const reviewInfo = await axios.get(`/movie/${movieId}/reviews`, options);
   return reviewInfo.data;
 };
+
+export const searchRequest = async query => {
+  const response = await axios.get(`/search/movie?query=${query}`, options);
+  return response.data.results;
+};

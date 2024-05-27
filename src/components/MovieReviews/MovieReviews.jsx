@@ -3,6 +3,7 @@ import { getReviewInfo } from '../../movieList-api';
 import LoadBar from '../LoadBar/LoadBar';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { FaUserAlt } from 'react-icons/fa';
 
 import css from './MovieReviews.module.css';
 
@@ -13,6 +14,7 @@ export default function MovieReviews() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+    if (!movieId) return;
     const reviewInfo = async () => {
       try {
         setLoading(true);
@@ -33,9 +35,12 @@ export default function MovieReviews() {
       <div className={css.reviewContainer}>
         <ul className={css.reviewList}>
           {reviews.map(review => (
-            <li key={review.id}>
+            <li className={css.comments} key={review.id}>
               <hr />
-              <h3>{review.author}</h3>
+              <span className={css.user}>
+                <FaUserAlt />
+                <h3>{review.author}</h3>
+              </span>
               <p>{review.content}</p>
             </li>
           ))}

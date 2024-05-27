@@ -1,0 +1,14 @@
+.cardLink {
+    background-color: rgb(215, 215, 219);
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    line-height: 0.5;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: black;
+    transition: transform 250ms linear;
+}

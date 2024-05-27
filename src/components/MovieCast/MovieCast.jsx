@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { getCastInfo } from '../../movieList-api';
 import css from './MovieCast.module.css';
 
+import toast from 'react-hot-toast';
+
 export default function MovieCast() {
   const { movieId } = useParams();
   const [loading, setLoading] = useState(false);
@@ -12,12 +14,13 @@ export default function MovieCast() {
 
   useEffect(() => {
     const castInfo = async () => {
+      if (!movieId) return;
       try {
         setLoading(true);
         const data = await getCastInfo(movieId);
         setMovieCast(data.cast);
       } catch (error) {
-        console.log(error);
+        toast.error(error);
       } finally {
         setLoading(false);
       }
