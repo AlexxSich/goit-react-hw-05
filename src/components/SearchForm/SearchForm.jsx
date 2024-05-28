@@ -1,10 +1,10 @@
 import { Formik, Field, Form } from 'formik';
 import css from './SearchForm.module.css';
 
-export default function SearchForm({ onSearch, notify, search }) {
+export default function SearchForm({ onSearch, notify }) {
   return (
     <Formik
-      initialValues={{ query: search }}
+      initialValues={{ query: '' }}
       onSubmit={(values, actions) => {
         if (values.query === '') {
           notify();

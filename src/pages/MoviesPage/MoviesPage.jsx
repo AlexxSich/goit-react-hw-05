@@ -39,16 +39,10 @@ export default function MoviesPage() {
     nextMoviesList(searchQuery);
   }, [searchQuery]);
 
-  const handleSearch = async query => {
-    try {
-      setLoading(true);
-      searchParams.set('query', query);
-      setSearchParams(searchParams);
-    } catch (error) {
-      toast.error('Something went wrong!!! Try to reload the page...');
-    } finally {
-      setLoading(false);
-    }
+  const handleSearch = query => {
+    setLoading(true);
+    searchParams.set('query', query);
+    setSearchParams(searchParams);
   };
 
   return (
@@ -56,11 +50,7 @@ export default function MoviesPage() {
       <hr />
       <p>Try to find your favorite movie</p>
       {loading && <LoadBar />}
-      <SearchForm
-        onSearch={handleSearch}
-        notify={notify}
-        search={searchQuery}
-      />
+      <SearchForm onSearch={handleSearch} notify={notify} />
       {searchedMovies.length > 0 && <MovieList movies={searchedMovies} />}
     </div>
   );
