@@ -11,7 +11,6 @@ export default function MovieCast() {
   const [loading, setLoading] = useState(false);
 
   const [movieCast, setMovieCast] = useState([]);
-  console.log(movieCast);
 
   useEffect(() => {
     const castInfo = async () => {

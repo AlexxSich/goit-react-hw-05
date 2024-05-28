@@ -15,10 +15,10 @@ export default function MoviesPage() {
   const [searchedMovies, setSearchedMovies] = useState([]);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const searchOuery = searchParams.get('query') ?? '';
+  const searchQuery = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    if (!searchOuery) return;
+    if (!searchQuery) return;
     setSearchedMovies([]);
     setLoading(true);
 
@@ -36,14 +36,12 @@ export default function MoviesPage() {
         setLoading(false);
       }
     }
-    nextMoviesList(searchOuery);
-  }, [searchOuery]);
+    nextMoviesList(searchQuery);
+  }, [searchQuery]);
 
   const handleSearch = async query => {
     try {
       setLoading(true);
-      const data = await searchRequest(query);
-      setSearchedMovies(data);
       searchParams.set('query', query);
       setSearchParams(searchParams);
     } catch (error) {
@@ -61,7 +59,7 @@ export default function MoviesPage() {
       <SearchForm
         onSearch={handleSearch}
         notify={notify}
-        search={searchOuery}
+        search={searchQuery}
       />
       {searchedMovies.length > 0 && <MovieList movies={searchedMovies} />}
     </div>
