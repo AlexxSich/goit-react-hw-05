@@ -32,20 +32,27 @@ export default function MovieReviews() {
   return (
     <>
       {loading && <LoadBar />}
-      <div className={css.reviewContainer}>
-        <ul className={css.reviewList}>
-          {reviews.map(review => (
-            <li className={css.comments} key={review.id}>
-              <hr />
-              <span className={css.user}>
-                <FaUserAlt />
-                <h3>{review.author}</h3>
-              </span>
-              <p>{review.content}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {reviews.length > 0 ? (
+        <div className={css.reviewContainer}>
+          <ul className={css.reviewList}>
+            {reviews.map(review => (
+              <li className={css.comments} key={review.id}>
+                <hr />
+                <span className={css.user}>
+                  <FaUserAlt />
+                  <h3>{review.author}</h3>
+                </span>
+                <p>{review.content}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div>
+          <hr />
+          <p>Sorry, We cant find any reviews</p>
+        </div>
+      )}
     </>
   );
 }

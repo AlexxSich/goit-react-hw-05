@@ -11,6 +11,7 @@ export default function MovieCast() {
   const [loading, setLoading] = useState(false);
 
   const [movieCast, setMovieCast] = useState([]);
+  console.log(movieCast);
 
   useEffect(() => {
     const castInfo = async () => {
@@ -34,24 +35,31 @@ export default function MovieCast() {
   return (
     <>
       {loading && <LoadBar />}
-      <ul className={css.movieCastList}>
-        {movieCast.map(cast => (
-          <li className={css.movieCastListItem} key={cast.cast_id}>
-            <img
-              className={css.actorImg}
-              src={
-                cast.profile_path
-                  ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
-                  : defaultImg
-              }
-              width={250}
-              alt="actor"
-            />
-            <h3>{cast.name}</h3>
-            <p>Character - {cast.character}</p>
-          </li>
-        ))}
-      </ul>
+      {movieCast.length > 0 ? (
+        <ul className={css.movieCastList}>
+          {movieCast.map(cast => (
+            <li className={css.movieCastListItem} key={cast.cast_id}>
+              <img
+                className={css.actorImg}
+                src={
+                  cast.profile_path
+                    ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
+                    : defaultImg
+                }
+                width={250}
+                alt="actor"
+              />
+              <h3>{cast.name}</h3>
+              <p>Character - {cast.character}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div>
+          <hr />
+          <p>Sorry, We cant find any additional info about cast</p>
+        </div>
+      )}
     </>
   );
 }
