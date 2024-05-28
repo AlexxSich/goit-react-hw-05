@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { searchRequest } from '../../movieList-api';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import LoadBar from '../../components/LoadBar/LoadBar';
 
 import MovieList from '../../components/MovieList/MovieList';
@@ -17,6 +17,28 @@ export default function MoviesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchOuery = searchParams.get('query') ?? '';
 
+  useEffect(() => {
+    if (!searchOuery) return;
+    setSearchedMovies([]);
+    setLoading(true);
+
+    async function nextMoviesList(searchOuery) {
+      try {
+        const data = await searchRequest(searchOuery);
+        if (!data.length) {
+          toast.error("Sorry. We can't find your movie. Try again...");
+          return;
+        }
+        setSearchedMovies(data);
+      } catch (error) {
+        toast.error('Something went wrong!!! Try to reload the page...');
+      } finally {
+        setLoading(false);
+      }
+    }
+    nextMoviesList(searchOuery);
+  }, [searchOuery]);
+
   const handleSearch = async query => {
     try {
       setLoading(true);
@@ -25,7 +47,7 @@ export default function MoviesPage() {
       searchParams.set('query', query);
       setSearchParams(searchParams);
     } catch (error) {
-      toast.error('Something went wrong!!! Try again...');
+      toast.error('Something went wrong!!! Try to reload the page...');
     } finally {
       setLoading(false);
     }
@@ -42,8 +64,6 @@ export default function MoviesPage() {
         search={searchOuery}
       />
       {searchedMovies.length > 0 && <MovieList movies={searchedMovies} />}
-
-      <ToastContainer />
     </div>
   );
 }

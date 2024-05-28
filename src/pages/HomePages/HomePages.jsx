@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getMovies } from '../../movieList-api';
 import MovieList from '../../components/MovieList/MovieList';
 import css from './HomePages.module.css';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 
 import LoadBar from '../../components/LoadBar/LoadBar';
 

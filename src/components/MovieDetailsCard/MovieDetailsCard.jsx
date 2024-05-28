@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import css from './MovieDetailsCard.module.css';
 
 export default function MovieDetailsCard({
@@ -43,9 +42,9 @@ export default function MovieDetailsCard({
               <li key={genre.id}>{genre.name}</li>
             ))}
           </ul>
-          <Link className={css.cardLink} to={homepage}>
+          <a href={homepage} className={css.cardLink} target="_blank">
             Watch Movie
-          </Link>
+          </a>
         </div>
       </div>
     </>
